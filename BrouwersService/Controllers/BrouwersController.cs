@@ -61,5 +61,23 @@ namespace BrouwersService.Controllers
                               });
             return Ok(brouwers);
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            if (InMemoryDataBase.Brouwers.ContainsKey(id))
+            {
+                InMemoryDataBase.Brouwers.Remove(id);
+                return this.Ok();
+            }
+            return this.NotFound();
+        }
+
+        public IHttpActionResult Post(Brouwer brouwer)
+        {
+            var id = InMemoryDataBase.Brouwers.Keys.Max() + 1;
+            brouwer.ID = id;
+            InMemoryDataBase.Brouwers[id] = brouwer;
+            return this.Created(this.Request.RequestUri.AbsoluteUri + "/" + id, brouwer);
+        }
     }
 }
