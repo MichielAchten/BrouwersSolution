@@ -10,6 +10,9 @@ namespace BrouwersService.Controllers
 {
     public class BrouwersController : ApiController
     {
+        /// <summary>
+        /// Alle brouwers lezen
+        /// </summary>
         public IHttpActionResult GetAll()
         {
             //return this.Ok(InMemoryDataBase.Brouwers.Values.ToList());
@@ -29,6 +32,11 @@ namespace BrouwersService.Controllers
             return this.Ok(brouwers);
         }
 
+        /// <summary>
+        /// Een brouwer lezen
+        /// </summary>
+        /// <param name="id">De id van de te lezen brouwer</param>
+        /// <returns>De brouwer</returns>
         public IHttpActionResult Get(int id)
         {
             if (InMemoryDataBase.Brouwers.ContainsKey(id))
@@ -74,10 +82,31 @@ namespace BrouwersService.Controllers
 
         public IHttpActionResult Post(Brouwer brouwer)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
             var id = InMemoryDataBase.Brouwers.Keys.Max() + 1;
             brouwer.ID = id;
             InMemoryDataBase.Brouwers[id] = brouwer;
             return this.Created(this.Request.RequestUri.AbsoluteUri + "/" + id, brouwer);
         }
+
+        public IHttpActionResult Put(int id, Brouwer brouwer)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            if (InMemoryDataBase.Brouwers.ContainsKey(id))
+            {
+                InMemoryDataBase.Brouwers[id] = brouwer;
+                return this.Ok();
+            }
+            return this.NotFound();
+        }
+
     }
 }
