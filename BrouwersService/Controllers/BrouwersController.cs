@@ -13,7 +13,9 @@ namespace BrouwersService.Controllers
         /// <summary>
         /// Alle brouwers lezen
         /// </summary>
-        public IHttpActionResult GetAll()
+        [HttpGet]
+        [Route("brewers")]
+        public IHttpActionResult Allen()
         {
             //return this.Ok(InMemoryDataBase.Brouwers.Values.ToList());
             //var brouwers = new Brouwers();
@@ -37,7 +39,9 @@ namespace BrouwersService.Controllers
         /// </summary>
         /// <param name="id">De id van de te lezen brouwer</param>
         /// <returns>De brouwer</returns>
-        public IHttpActionResult Get(int id)
+        [HttpGet]
+        [Route("brewers/{id}")]
+        public IHttpActionResult Een(int id)
         {
             if (InMemoryDataBase.Brouwers.ContainsKey(id))
             {
@@ -46,7 +50,9 @@ namespace BrouwersService.Controllers
             return this.NotFound();
         }
 
-        public IHttpActionResult GetByBeginNaam(string beginNaam)
+        [HttpGet]
+        [Route("brewers")]
+        public IHttpActionResult ByBeginNaam(string beginNaam)
         {
             beginNaam = beginNaam.ToLower();
             var brouwers = new Brouwers();
@@ -70,8 +76,11 @@ namespace BrouwersService.Controllers
             return Ok(brouwers);
         }
 
-        public IHttpActionResult Delete(int id)
+        [HttpDelete]
+        [Route("brewers")]
+        public IHttpActionResult Verwijder(int id)
         {
+            //error 405: https://www.asp.net/web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
             if (InMemoryDataBase.Brouwers.ContainsKey(id))
             {
                 InMemoryDataBase.Brouwers.Remove(id);
@@ -80,7 +89,9 @@ namespace BrouwersService.Controllers
             return this.NotFound();
         }
 
-        public IHttpActionResult Post(Brouwer brouwer)
+        [HttpPost]
+        [Route("brewers")]
+        public IHttpActionResult VoegToe(Brouwer brouwer)
         {
             if (!this.ModelState.IsValid)
             {
@@ -93,7 +104,9 @@ namespace BrouwersService.Controllers
             return this.Created(this.Request.RequestUri.AbsoluteUri + "/" + id, brouwer);
         }
 
-        public IHttpActionResult Put(int id, Brouwer brouwer)
+        [HttpPut]
+        [Route("brewers")]
+        public IHttpActionResult Wijzig(int id, Brouwer brouwer)
         {
             if (!this.ModelState.IsValid)
             {
