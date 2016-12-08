@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2E574A7-848D-4E54-9CC4-AB027BAE9036}</ProjectGuid>
+    <ProjectGuid>{435EECB1-DA45-4DCA-8172-BBC70DEB8745}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BrouwersClient</RootNamespace>
-    <AssemblyName>BrouwersClient</AssemblyName>
+    <RootNamespace>KazenClient</RootNamespace>
+    <AssemblyName>KazenClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -59,9 +59,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BrouwersClasses\BrouwersClasses.csproj">
-      <Project>{f5323081-5d3c-4dbe-95c3-36e976596a38}</Project>
-      <Name>BrouwersClasses</Name>
+    <ProjectReference Include="..\KazenClasses\KazenClasses.csproj">
+      <Project>{c4143a6c-2fc9-4b6a-8ed6-b5fc949caaf9}</Project>
+      <Name>KazenClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KazenService\KazenService.csproj">
+      <Project>{4b3b7ed5-0417-4129-a1e3-b5b26b79ee76}</Project>
+      <Name>KazenService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -208,9 +208,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InMemoryDataBase.cs" />
-    <Compile Include="Models\Kaas.cs" />
-    <Compile Include="Models\KaasBeknopt.cs" />
-    <Compile Include="Models\Kazen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -281,6 +278,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KazenClasses\KazenClasses.csproj">
+      <Project>{c4143a6c-2fc9-4b6a-8ed6-b5fc949caaf9}</Project>
+      <Name>KazenClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

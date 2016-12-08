@@ -206,9 +206,6 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Brouwer.cs" />
-    <Compile Include="Models\BrouwerBeknopt.cs" />
-    <Compile Include="Models\Brouwers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InMemoryDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,6 +278,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrouwersClasses\BrouwersClasses.csproj">
+      <Project>{f5323081-5d3c-4dbe-95c3-36e976596a38}</Project>
+      <Name>BrouwersClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

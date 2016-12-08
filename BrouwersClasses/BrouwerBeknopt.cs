@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace KazenService.Models
+namespace BrouwersClasses
 {
-    [DataContract(Name = "kaas", Namespace = "")]
-    public class KaasBeknopt
+    [DataContract(Name = "brouwer", Namespace = "")]
+    public class BrouwerBeknopt
     {
         [DataMember(Name = "id", Order = 1)]
         public int ID { get; set; }

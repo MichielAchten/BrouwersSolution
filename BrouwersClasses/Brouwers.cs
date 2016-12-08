@@ -5,10 +5,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrouwersClient
+namespace BrouwersClasses
 {
     [CollectionDataContract(Name = "brouwers", Namespace = "")]
-    public class Brouwers: List<BrouwerBeknopt>
+    public class Brouwers : List<BrouwerBeknopt>
     {
 
     }

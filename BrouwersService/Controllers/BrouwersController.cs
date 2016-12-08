@@ -1,4 +1,5 @@
-﻿using BrouwersService.Models;
+﻿using BrouwersClasses;
+using BrouwersService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,9 +77,9 @@ namespace BrouwersService.Controllers
             return Ok(brouwers);
         }
 
-        [HttpDelete]
-        [Route("brewers")]
-        public IHttpActionResult Verwijder(int id)
+        //[HttpDelete]
+        //[Route("brewers")]
+        public IHttpActionResult Delete(int id)
         {
             //error 405: https://www.asp.net/web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
             if (InMemoryDataBase.Brouwers.ContainsKey(id))
@@ -104,9 +105,9 @@ namespace BrouwersService.Controllers
             return this.Created(this.Request.RequestUri.AbsoluteUri + "/" + id, brouwer);
         }
 
-        [HttpPut]
-        [Route("brewers")]
-        public IHttpActionResult Wijzig(int id, Brouwer brouwer)
+        //[HttpPut]
+        //[Route("brewers")]
+        public IHttpActionResult Put(int id, Brouwer brouwer)
         {
             if (!this.ModelState.IsValid)
             {

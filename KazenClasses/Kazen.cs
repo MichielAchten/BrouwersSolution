@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace KazenService.Models
+namespace KazenClasses
 {
     [CollectionDataContract(Name = "kazen", Namespace = "")]
     public class Kazen: List<KaasBeknopt>
